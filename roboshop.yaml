@@ -4,7 +4,7 @@
   vars:
     instance_type: "t3.micro"
     image_id: "ami-0220d79f3f480ecf5" # Example AMI ID (Amazon Linux 2, update as needed for your region)
-    security_group_id: ["sg-038949a8e5b397184"] # Example Security Group ID (optional)
+    sg_id: sg-038949a8e5b397184
     region: "us-east-1"
     domain_name: narayanareddy.online
     env: Dev
@@ -17,7 +17,7 @@
       amazon.aws.ec2_instance:
         instance_type: "{{ instance_type }}"
         image_id: "{{ image_id }}"
-        security_group_ids: "{{ security_group_id }}"
+        security_group: "{{ sg_id }}"
         region: "{{ region }}"
         name: "{{ item }}-{{ env }}"
         tags:
